@@ -5,64 +5,71 @@
         <title>CodePen</title>
 
         <style>
-            body {
-                padding: 2em;
+            * {
+                box-sizing: border-box;
             }
 
+            body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: row;
+                margin: 0;
+            }
+
+            .col-1 {
+                background: #D7E8D4;
+                flex: 1;
+                font-weight: bold;
+            }
+
+            .col-2 {
+                display: flex;
+                flex-direction: column;
+                flex: 5;
+            }
             .headerContainer {
                 display: flex;
                 flex-flow: column wrap;
-                align-content: center;
-                background: tomato;
                 font-weight: bold;
                 padding: 10px;
-            }
-
-            .footerContainer {
-                display: flex;
-                flex-flow: column wrap;
-                align-content: center;
-                background: lightgreen;
-                font-weight: bold;
-                padding: 10px;
-            }
-
-            .mainContainer {
-                display: flex;
-                flex-flow: row wrap;
-                font-weight: bold;
-                text-align: centre;
             }
 
             .mainContentItem {
-                text-align: left;
+                
+                display: flex;
+                flex-direction: row;
+            }
+
+            .mainContentItem > article{
+                flex: 3;
                 background: deepskyblue;
+                min-height: 60vh;
             }
 
-            article {
-                padding: 10px;
-                margin: 10px;
-                background: aqua;
+            .mainContentItem > .sideBarRightItem {
+                font-weight: bold;
+                flex: 1;
+                background: beige;
+                flex-direction: row;
+                
             }
 
-            .sideBarLeftItem {
-                background: gold;
+            header, footer {
+                background: yellowgreen;
+                height: 20vh;
             }
-            .sideBarRightItem{
-                background: hotpink;
+            
+            header, footer, article, nav, .sideBarRightItem {
+                padding: 1em;
             }
-
-            .sideBarItem { flex: 1 0 0; border: 0px solid green;}
-            .mainContentItem { flex: 3 0px;}
-            .sideBarLeftItem { order: 1;}
-            .mainContentItem {order: 2;}
-            .sideBarRightItem { order: 3;}
             
         </style>
     </head>
     <body>
-        <header class="headerContainer"><h1>Header - Sample Flexbox Example</h1></header>
-        <div class="mainContainer">
+        
+        <nav class = "col-1">Left Side Bar</nav>
+        <div class="col-2">
+            <header class="headerContainer"><h1>Header - Sample Flexbox Example</h1></header>
             <section class="mainContentItem">
                 <article>
                     <h2>First Article</h2>
@@ -79,11 +86,11 @@
 
                     <p>To give a definite answer one would have to study Gandhi's acts and writings in immense detail, for his whole life was a sort of pilgrimage in which every act was significant.</p>
                 </article>
+                <sideBar class="sideBarItem sideBarRightItem"><div class="center"><p>Right Side Bar</p></div></sideBar> 
             </section>
-            <sideBar class="sideBarItem sideBarLeftItem"><div class="center"><p>Left Side Bar</p></div></sideBar>
-            <sideBar class="sideBarItem sideBarRightItem"><div class="center"><p>Right Side Bar</p></div></sideBar> 
-
+            
+            <footer>Footer</footer>
         </div>
-        <footer class="footerContainer">Footer</footer>
+        
     </body>
 </html>
